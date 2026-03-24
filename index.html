@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Larry Pipeline Test v3 — Spring Outdoor Training</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #0a0a0a; color: #f5f0e8; padding: 40px 20px; }
+  .container { max-width: 1400px; margin: 0 auto; }
+  h1 { font-size: 28px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; color: #a3c3d9; }
+  .subtitle { font-size: 14px; color: #888; margin-bottom: 48px; line-height: 1.6; }
+  .section { margin-bottom: 60px; }
+  .section-title { font-size: 18px; font-weight: 600; margin-bottom: 24px; color: #fff; border-bottom: 1px solid #222; padding-bottom: 8px; }
+  .asset-card { background: #141414; border-radius: 12px; overflow: hidden; border: 1px solid #222; }
+  .asset-card img, .asset-card video { width: 100%; display: block; }
+  .asset-meta { padding: 16px; }
+  .asset-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #a3c3d9; margin-bottom: 8px; }
+  .asset-ratio { font-size: 12px; color: #666; margin-bottom: 12px; }
+  .copy-block { background: #1a1a1a; border-radius: 8px; padding: 16px; margin-top: 8px; border-left: 3px solid #13286d; }
+  .copy-hook { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.4; }
+  .copy-body { font-size: 13px; color: #ccc; line-height: 1.6; margin-bottom: 8px; }
+  .copy-cta { font-size: 12px; color: #a3c3d9; }
+  .platform-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .tag { font-size: 10px; padding: 3px 8px; border-radius: 4px; background: #1e1e1e; color: #888; border: 1px solid #333; }
+  .tag-green { background: #0d2818; color: #4ade80; border-color: #166534; }
+  .status-bar { background: #1a1a1a; border-radius: 8px; padding: 16px; margin-bottom: 40px; display: flex; gap: 24px; flex-wrap: wrap; }
+  .status-item { font-size: 12px; }
+  .status-label { color: #666; }
+  .status-value { color: #a3c3d9; font-weight: 600; }
+  .status-good { color: #4ade80; }
+  .urls { background: #141414; border-radius: 8px; padding: 16px; margin-top: 16px; }
+  .url-item { font-size: 11px; color: #888; margin-bottom: 6px; word-break: break-all; }
+  .url-item a { color: #a3c3d9; text-decoration: none; }
+  .url-item a:hover { text-decoration: underline; }
+  .url-label { display: inline-block; width: 180px; color: #666; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .pair-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 6px; }
+  .hypothesis-card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .hypothesis-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .hypothesis-body { font-size: 13px; color: #ccc; line-height: 1.6; }
+  .metric-row { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .metric { background: #1a1a1a; border-radius: 6px; padding: 8px 12px; font-size: 11px; }
+  .metric-name { color: #666; }
+  .metric-val { color: #a3c3d9; font-weight: 600; }
+  .divider { border: none; border-top: 1px solid #222; margin: 60px 0; }
+  .hashtags { font-size: 12px; color: #60a5fa; margin-top: 8px; line-height: 1.8; }
+  @media (max-width: 768px) { .pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Larry Pipeline Test v3</h1>
+<p class="subtitle">
+  Theme: "Spring is here. Time to get outside and show off all that hard training you did inside during the winter."<br>
+  Flavor: Blackberry Lemonade — Grok only (real product cutout in every image) — March 24, 2026
+</p>
+
+<div class="status-bar">
+  <div class="status-item"><span class="status-label">Base Images:</span> <span class="status-value status-good">4/4 Grok Edit</span></div>
+  <div class="status-item"><span class="status-label">Composites:</span> <span class="status-value status-good">4/4 Complete</span></div>
+  <div class="status-item"><span class="status-label">Video:</span> <span class="status-value status-good">Complete</span></div>
+  <div class="status-item"><span class="status-label">Copy/Hooks:</span> <span class="status-value status-good">Larry Generated</span></div>
+  <div class="status-item"><span class="status-label">Claims:</span> <span class="status-value status-good">All Tier A</span></div>
+  <div class="status-item"><span class="status-label">Brand Safety:</span> <span class="status-value status-good">Real Product — All Images</span></div>
+</div>
+
+<!-- HYPOTHESIS -->
+<div class="section">
+  <div class="section-title">Content Hypothesis</div>
+  <div class="hypothesis-card">
+    <div class="hypothesis-title">H: "Winter training payoff" narrative drives stronger engagement than generic spring lifestyle imagery</div>
+    <div class="hypothesis-body">
+      Positioning the transition from indoor winter training to outdoor spring performance creates an earned-reward emotional arc. Audience identifies with the discipline of training inside and the excitement of finally taking it outside. Kenetik sits at the center as the performance fuel for both chapters.
+    </div>
+    <div class="metric-row">
+      <div class="metric"><span class="metric-name">Target segment:</span> <span class="metric-val">Wedge A (Protocol Class) + Wedge C (Competitive Edge)</span></div>
+      <div class="metric"><span class="metric-name">Primary KPI:</span> <span class="metric-val">Engagement rate > 3.5%</span></div>
+      <div class="metric"><span class="metric-name">Secondary KPI:</span> <span class="metric-val">CTR > 1.2%</span></div>
+      <div class="metric"><span class="metric-name">Hook archetype:</span> <span class="metric-val">Earned-reward / problem-agitation (1.8x)</span></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 1:1 FEED -->
+<div class="section">
+  <div class="section-title">1:1 — Instagram Feed / Facebook Feed</div>
+  <div class="pair">
+    <div>
+      <div class="pair-label">Base Image (Grok Edit)</div>
+      <div class="asset-card">
+        <img src="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395414/kenetik/generated/xai-tmp-imgen-afc19604-abfa-4c1f-8bd7-f73563be3b12_znte4k.png" alt="1:1 base">
+      </div>
+    </div>
+    <div>
+      <div class="pair-label">Composite (Text + Logo)</div>
+      <div class="asset-card">
+        <img src="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/28ebfda2-85f5-43b1-bf65-65dcedb8bae3.png" alt="1:1 composite">
+      </div>
+    </div>
+  </div>
+  <div class="copy-block">
+    <div class="copy-hook">You trained all winter. Spring is your proof.</div>
+    <div class="copy-body">All those early mornings in the garage. The dark runs before sunrise. The reps nobody saw. Spring doesn't care about your intentions — it rewards the work. Kenetik Blackberry Lemonade. 12g of D-BHB ketones. Caffeine-free. The same clean fuel that got you through winter, now fueling everything you earned.</div>
+    <div class="copy-cta">Link in bio | drinkkenetik.com</div>
+  </div>
+  <div class="platform-tags">
+    <span class="tag">Instagram Feed</span>
+    <span class="tag">Facebook Feed</span>
+    <span class="tag">Pinterest</span>
+  </div>
+</div>
+
+<!-- 9:16 HERO -->
+<div class="section">
+  <div class="section-title">9:16 — Reels / TikTok / Stories</div>
+  <div class="pair">
+    <div>
+      <div class="pair-label">Base Image (Grok Multi-Image Edit)</div>
+      <div class="asset-card">
+        <img src="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395434/kenetik/generated/xai-tmp-imgen-3bb74b06-806b-4cdd-be37-5ea66fda57e9_muzgqv.png" alt="9:16 base">
+      </div>
+    </div>
+    <div>
+      <div class="pair-label">Composite (Text + Logo)</div>
+      <div class="asset-card">
+        <img src="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/b60049e2-8fcf-41b0-81d8-500bef6d687d.png" alt="9:16 composite">
+      </div>
+    </div>
+  </div>
+  <div class="copy-block">
+    <div class="copy-hook">Winter built you. Now go show it.</div>
+    <div class="copy-body">The gym was the proving ground. Spring is the stage. Grab a Kenetik Blackberry Lemonade and take everything you built into the sun. 12g patented ketones. Zero caffeine. Nothing artificial. Your brain and body already know what to do.</div>
+    <div class="copy-cta">drinkkenetik.com</div>
+  </div>
+  <div class="platform-tags">
+    <span class="tag">Instagram Reels</span>
+    <span class="tag">TikTok</span>
+    <span class="tag">IG Stories</span>
+    <span class="tag">FB Stories</span>
+  </div>
+</div>
+
+<!-- 16:9 LANDSCAPE -->
+<div class="section">
+  <div class="section-title">16:9 — LinkedIn / YouTube / X</div>
+  <div class="pair">
+    <div>
+      <div class="pair-label">Base Image (Grok Multi-Image Edit)</div>
+      <div class="asset-card">
+        <img src="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395452/kenetik/generated/xai-tmp-imgen-b91351b5-317c-451f-8d34-9027a5646670_mpdls7.png" alt="16:9 base">
+      </div>
+    </div>
+    <div>
+      <div class="pair-label">Composite (Text + Logo)</div>
+      <div class="asset-card">
+        <img src="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/096a1daf-680b-40d7-9fae-a64b7188f6e4.png" alt="16:9 composite">
+      </div>
+    </div>
+  </div>
+  <div class="copy-block">
+    <div class="copy-hook">The work was quiet. The results won't be.</div>
+    <div class="copy-body">You didn't post about the 5am sessions or the cold garage workouts. You just showed up. Now spring is here, the trails are calling, and your body is ready. Kenetik is patented ketone fuel — 12g of D-BHB per can, caffeine-free, nothing artificial. Built for people who did the work when nobody was watching.</div>
+    <div class="copy-cta">drinkkenetik.com</div>
+  </div>
+  <div class="platform-tags">
+    <span class="tag">LinkedIn</span>
+    <span class="tag">YouTube Thumbnail</span>
+    <span class="tag">X/Twitter</span>
+  </div>
+</div>
+
+<!-- 4:5 PORTRAIT -->
+<div class="section">
+  <div class="section-title">4:5 — Facebook / Instagram Portrait</div>
+  <div class="pair">
+    <div>
+      <div class="pair-label">Base Image (Grok Multi-Image Edit)</div>
+      <div class="asset-card">
+        <img src="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395471/kenetik/generated/xai-tmp-imgen-c0320da8-de50-420c-9b12-eacdf73f1f0b_q6wwrg.png" alt="4:5 base">
+      </div>
+    </div>
+    <div>
+      <div class="pair-label">Composite (Text + Logo)</div>
+      <div class="asset-card">
+        <img src="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/b79b96fe-d8c2-4d9e-9d9d-73a696b7ff91.png" alt="4:5 composite">
+      </div>
+    </div>
+  </div>
+  <div class="copy-block">
+    <div class="copy-hook">Earned, not given.</div>
+    <div class="copy-body">Every rep. Every mile. Every morning you chose discipline over comfort. That's what spring is about to see. Kenetik Blackberry Lemonade — 12g of D-BHB ketones, caffeine-free, nothing artificial. Brain and body fuel for athletes who put in the work.</div>
+    <div class="copy-cta">Shop now at drinkkenetik.com</div>
+  </div>
+  <div class="platform-tags">
+    <span class="tag">Facebook Feed</span>
+    <span class="tag">Instagram Portrait</span>
+    <span class="tag">Facebook Ads</span>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- VIDEO -->
+<div class="section">
+  <div class="section-title">Video — 9:16 Animated Hero</div>
+  <div style="max-width: 400px;">
+    <div class="asset-card">
+      <video controls autoplay muted loop playsinline id="hero-video">
+        <source src="https://vidgen.x.ai/xai-vidgen-bucket/xai-video-e7cec2de-871b-47d7-bfb5-36f69ffa897c.mp4" type="video/mp4">
+      </video>
+      <div class="asset-meta">
+        <div class="asset-label">Animated Hero — ~8s, No Music</div>
+        <div class="asset-ratio">Grok image-to-video from 9:16 hero. Minimal motion prompt to preserve product fidelity.</div>
+        <div class="platform-tags">
+          <span class="tag">Instagram Reels</span>
+          <span class="tag">TikTok</span>
+          <span class="tag">IG Stories</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- HOOKS & COPY -->
+<div class="section">
+  <div class="section-title">All Generated Hooks</div>
+  <div class="copy-block" style="border-left-color: #4ade80;">
+    <div class="copy-body">
+      <strong style="color: #fff;">Hook strategy: Earned-reward / Problem-agitation (1.8x)</strong><br><br>
+      1. "You trained all winter. Spring is your proof." — earned-reward, 1.8x<br>
+      2. "Winter built you. Now go show it." — earned-reward, 1.8x<br>
+      3. "The work was quiet. The results won't be." — earned-reward + tension, 1.8x<br>
+      4. "Earned, not given." — identity, 1.6x<br>
+      5. "Nobody saw the reps. Everybody will see the results." — earned-reward, 1.8x<br>
+      6. "The gym was the proving ground. Spring is the stage." — narrative arc, 1.5x<br>
+      7. "Cold garage. Dark mornings. Now it's your turn." — problem-agitation, 1.8x<br>
+      8. "Spring doesn't care about intentions. It rewards the work." — direct truth, 1.4x
+    </div>
+  </div>
+</div>
+
+<!-- HASHTAGS -->
+<div class="section">
+  <div class="section-title">Hashtags by Platform</div>
+  <div class="copy-block" style="border-left-color: #60a5fa;">
+    <div class="copy-body">
+      <strong style="color: #60a5fa;">Instagram / TikTok:</strong><br>
+      <span class="hashtags">#Kenetik #WinterTraining #SpringPayoff #BrainFuel #CaffeineFree #BlackberryLemonade #KetonePerformance #EarnedNotGiven #CleanEnergy #NoMoreCrash #DrinkKenetik #FocusFuel #OutdoorSeason</span><br><br>
+      <strong style="color: #60a5fa;">LinkedIn:</strong><br>
+      <span class="hashtags">#BrainPerformance #Ketones #FunctionalBeverage #CognitiveHealth #CPG #CleanLabel #PerformanceNutrition</span><br><br>
+      <strong style="color: #60a5fa;">X/Twitter:</strong><br>
+      <span class="hashtags">#Kenetik #KetoneEnergy #SpringFitness #CaffeineFree #BlackberryLemonade #EarnedIt</span>
+    </div>
+  </div>
+</div>
+
+<!-- CLAIMS -->
+<div class="section">
+  <div class="section-title">Claims Compliance</div>
+  <div class="hypothesis-card">
+    <div class="hypothesis-body">
+      <strong style="color: #4ade80;">All claims: Tier A (no review gate required)</strong><br><br>
+      "12g of D-BHB ketones" — <span style="color: #4ade80;">Tier A</span> — factual product spec, on label<br>
+      "Caffeine-free" — <span style="color: #4ade80;">Tier A</span> — factual product spec, on label<br>
+      "Nothing artificial" — <span style="color: #4ade80;">Tier A</span> — factual product spec, on label<br>
+      "Patented ketone technology" — <span style="color: #4ade80;">Tier A</span> — verified patent status<br>
+      "Brain and body fuel" — <span style="color: #4ade80;">Tier A</span> — brand descriptor, structure/function<br>
+      "Zero crash" — <span style="color: #4ade80;">Tier A</span> — absence claim (product contains no caffeine)<br>
+      "Clean fuel" — <span style="color: #4ade80;">Tier A</span> — shorthand for no artificial ingredients
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ALL URLS -->
+<div class="section">
+  <div class="section-title">All Asset URLs</div>
+  <div class="urls">
+    <div class="url-item"><span class="url-label">1:1 Base:</span> <a href="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395414/kenetik/generated/xai-tmp-imgen-afc19604-abfa-4c1f-8bd7-f73563be3b12_znte4k.png" target="_blank">Cloudinary</a></div>
+    <div class="url-item"><span class="url-label">1:1 Composite:</span> <a href="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/28ebfda2-85f5-43b1-bf65-65dcedb8bae3.png" target="_blank">Creatomate</a></div>
+    <div class="url-item"><span class="url-label">9:16 Base:</span> <a href="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395434/kenetik/generated/xai-tmp-imgen-3bb74b06-806b-4cdd-be37-5ea66fda57e9_muzgqv.png" target="_blank">Cloudinary</a></div>
+    <div class="url-item"><span class="url-label">9:16 Composite:</span> <a href="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/b60049e2-8fcf-41b0-81d8-500bef6d687d.png" target="_blank">Creatomate</a></div>
+    <div class="url-item"><span class="url-label">16:9 Base:</span> <a href="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395452/kenetik/generated/xai-tmp-imgen-b91351b5-317c-451f-8d34-9027a5646670_mpdls7.png" target="_blank">Cloudinary</a></div>
+    <div class="url-item"><span class="url-label">16:9 Composite:</span> <a href="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/096a1daf-680b-40d7-9fae-a64b7188f6e4.png" target="_blank">Creatomate</a></div>
+    <div class="url-item"><span class="url-label">4:5 Base:</span> <a href="https://res.cloudinary.com/doecsa4lj/image/upload/v1774395471/kenetik/generated/xai-tmp-imgen-c0320da8-de50-420c-9b12-eacdf73f1f0b_q6wwrg.png" target="_blank">Cloudinary</a></div>
+    <div class="url-item"><span class="url-label">4:5 Composite:</span> <a href="https://f002.backblazeb2.com/file/creatomate-c8xg3hsxdu/b79b96fe-d8c2-4d9e-9d9d-73a696b7ff91.png" target="_blank">Creatomate</a></div>
+    <div class="url-item"><span class="url-label">Video (9:16):</span> <a href="https://vidgen.x.ai/xai-vidgen-bucket/xai-video-e7cec2de-871b-47d7-bfb5-36f69ffa897c.mp4" target="_blank">xAI Video</a></div>
+  </div>
+</div>
+
+<div style="text-align: center; padding: 40px 0 20px; color: #444; font-size: 11px;">
+  Generated by Larry 2.0 + Moe (Kenetik Content Engine) — Grok Edit Mode Only — March 24, 2026
+</div>
+
+</div>
+</body>
+</html>
