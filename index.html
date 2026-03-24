@@ -295,6 +295,182 @@
   </div>
 </div>
 
+<!-- HOW TO USE LARRY -->
+<div class="section">
+  <div class="section-title">How This Was Built — Larry Commands Used</div>
+  <p style="font-size: 13px; color: #888; margin-bottom: 24px;">Every asset on this page was generated using KGS commands. Here's exactly what was entered and what came back. Copy these patterns to generate your own content.</p>
+
+  <!-- STEP 1: THE BRIEF -->
+  <div class="hypothesis-card" style="margin-bottom: 24px;">
+    <div class="hypothesis-title" style="color: #a3c3d9;">Step 1: The Brief (What You Give Larry)</div>
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; margin-top: 12px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; color: #4ade80; line-height: 1.8; overflow-x: auto;">
+      /generate-content<br><br>
+      Spring campaign, Blackberry Lemonade. The theme is that spring is<br>
+      finally here and it's time to get outside and show off all the hard<br>
+      training you put in during the winter. Earned reward angle. Generate<br>
+      all social formats (1:1, 9:16, 16:9, 4:5), composites with text<br>
+      overlay and logo, a video from the hero image, hooks, hashtags by<br>
+      platform, and claims compliance check. Grok only, use real product cutouts.
+    </div>
+    <div class="hypothesis-body" style="margin-top: 12px; color: #666;">
+      That's it. One prompt. Larry parses the request, loads brand context from the Brain skill (voice, claims, products, segments, visual identity), generates hooks, writes platform copy, then hands off to Moe for image generation, compositing, and video.
+    </div>
+  </div>
+
+  <!-- STEP 2: BRAND CONTEXT -->
+  <div class="hypothesis-card" style="margin-bottom: 24px;">
+    <div class="hypothesis-title" style="color: #a3c3d9;">Step 2: Larry Loads Brand Context (Automatic)</div>
+    <div class="hypothesis-body">
+      Larry reads these Brain skill files at runtime — you don't need to provide any of this:
+    </div>
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; margin-top: 12px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: #888; line-height: 1.8;">
+      references/brand-voice.md &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— tone, banned phrases, messaging hierarchy<br>
+      references/claims-compliance.md &nbsp;&nbsp;— claims tiers, approved claims matrix<br>
+      references/products-formats.md &nbsp;&nbsp;&nbsp;— SKU details, 12g ketones, caffeine-free<br>
+      references/segments-personas.md &nbsp;&nbsp;— Wedge A/B/C profiles, pain points<br>
+      references/visual-identity.md &nbsp;&nbsp;&nbsp;&nbsp;— colors, photography rules, compositing specs
+    </div>
+  </div>
+
+  <!-- STEP 3: IMAGE GENERATION -->
+  <div class="hypothesis-card" style="margin-bottom: 24px;">
+    <div class="hypothesis-title" style="color: #a3c3d9;">Step 3: Moe Generates Images — generate_image (x4)</div>
+    <div class="hypothesis-body" style="margin-bottom: 12px;">
+      Larry writes the scene prompts. Moe auto-injects the real Blackberry Lemonade product cutout + logo as brand_assets, strips product descriptions from the prompt, and routes to Grok's multi-image edit endpoint. This is what Moe received for each format:
+    </div>
+
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; margin-top: 8px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: #ccc; line-height: 1.8; margin-bottom: 12px;">
+      <span style="color: #4ade80;">// 1:1 — Instagram Feed</span><br>
+      generate_image(<br>
+      &nbsp;&nbsp;prompt: "Warm morning desk scene, open laptop, journal, natural<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;light through window, a performance drink can on the desk,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;spring greenery visible outside, calm productive energy,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;shallow depth of field"<br>
+      &nbsp;&nbsp;provider: "grok"<br>
+      &nbsp;&nbsp;style: "lifestyle"<br>
+      &nbsp;&nbsp;width: 1080, height: 1080<br>
+      &nbsp;&nbsp;brand_assets: [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;"cloudinary/.../blackberry_lemonade.png", <span style="color: #666;">// real cutout</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;"cloudinary/.../kenetik_logo_gradient_bbl.png" <span style="color: #666;">// logo</span><br>
+      &nbsp;&nbsp;]<br>
+      )
+    </div>
+
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: #ccc; line-height: 1.8; margin-bottom: 12px;">
+      <span style="color: #4ade80;">// 9:16 — Reels / TikTok / Stories</span><br>
+      generate_image(<br>
+      &nbsp;&nbsp;prompt: "Athletic person stepping out front door into spring<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;morning, gym bag over shoulder, trail visible ahead,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;golden hour light, performance drink can in hand,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;earned confidence, vertical composition"<br>
+      &nbsp;&nbsp;provider: "grok"<br>
+      &nbsp;&nbsp;width: 1080, height: 1920<br>
+      &nbsp;&nbsp;brand_assets: [cutout, logo]<br>
+      )
+    </div>
+
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: #ccc; line-height: 1.8; margin-bottom: 12px;">
+      <span style="color: #4ade80;">// 16:9 — LinkedIn / YouTube / X</span><br>
+      generate_image(<br>
+      &nbsp;&nbsp;prompt: "Wide outdoor trail at golden hour, running shoes<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;on a rock beside a performance drink can, spring<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;greenery coming alive, warm directional light,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cinematic landscape composition"<br>
+      &nbsp;&nbsp;provider: "grok"<br>
+      &nbsp;&nbsp;width: 1920, height: 1080<br>
+      &nbsp;&nbsp;brand_assets: [cutout, logo]<br>
+      )
+    </div>
+
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: #ccc; line-height: 1.8;">
+      <span style="color: #4ade80;">// 4:5 — Facebook / Instagram Portrait</span><br>
+      generate_image(<br>
+      &nbsp;&nbsp;prompt: "Post-workout scene on a park bench in spring,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;towel draped, performance drink can on armrest,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;spring blossoms overhead, warm afternoon light,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;earned rest after hard training"<br>
+      &nbsp;&nbsp;provider: "grok"<br>
+      &nbsp;&nbsp;width: 1080, height: 1350<br>
+      &nbsp;&nbsp;brand_assets: [cutout, logo]<br>
+      )
+    </div>
+
+    <div class="hypothesis-body" style="margin-top: 12px; color: #666;">
+      Key: brand_assets always includes the real product cutout PNG + logo. Grok's multi-image edit composites the real can into the AI-generated scene. The product is never fabricated.
+    </div>
+  </div>
+
+  <!-- STEP 4: COMPOSITING -->
+  <div class="hypothesis-card" style="margin-bottom: 24px;">
+    <div class="hypothesis-title" style="color: #a3c3d9;">Step 4: Moe Creates Composites — create_composite (x4)</div>
+    <div class="hypothesis-body" style="margin-bottom: 12px;">
+      Each base image gets a text overlay (hook + subtext) and logo watermark via Creatomate:
+    </div>
+
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: #ccc; line-height: 1.8;">
+      <span style="color: #4ade80;">// Example: 1:1 composite</span><br>
+      create_composite(<br>
+      &nbsp;&nbsp;slides: [{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;image_url: "[1:1 base image from Step 3]",<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;headline: "You trained all winter.",<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;subtext: "Spring is your proof. 12g ketones. Zero caffeine. Zero crash."<br>
+      &nbsp;&nbsp;}]<br>
+      &nbsp;&nbsp;output_format: "png"<br>
+      &nbsp;&nbsp;resolution: "1080x1080"<br>
+      &nbsp;&nbsp;brand_watermark: true<br>
+      )<br><br>
+      <span style="color: #666;">// Same pattern for 9:16 (1080x1920), 16:9 (1920x1080), 4:5 (1080x1350)</span><br>
+      <span style="color: #666;">// Each gets its own hook from Step 3's hook generation</span>
+    </div>
+  </div>
+
+  <!-- STEP 5: VIDEO -->
+  <div class="hypothesis-card" style="margin-bottom: 24px;">
+    <div class="hypothesis-title" style="color: #a3c3d9;">Step 5: Moe Generates Video — generate_video</div>
+    <div class="hypothesis-body" style="margin-bottom: 12px;">
+      The 9:16 hero image becomes an animated video via Grok image-to-video. Minimal motion prompt preserves product fidelity:
+    </div>
+
+    <div style="background: #0a0a0a; border-radius: 6px; padding: 16px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: #ccc; line-height: 1.8;">
+      generate_video(<br>
+      &nbsp;&nbsp;prompt: "Gentle spring breeze, leaves swaying softly,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;warm light shifting slowly"<br>
+      &nbsp;&nbsp;model: "grok"<br>
+      &nbsp;&nbsp;source_image_url: "[9:16 base image from Step 3]"<br>
+      &nbsp;&nbsp;duration: 8<br>
+      &nbsp;&nbsp;aspect_ratio: "9:16"<br>
+      &nbsp;&nbsp;resolution: "720p"<br>
+      )<br><br>
+      <span style="color: #666;">// Prompt is intentionally minimal — tells Grok to add</span><br>
+      <span style="color: #666;">// subtle motion without regenerating the scene or product</span>
+    </div>
+  </div>
+
+  <!-- STEP 6: CLAIMS CHECK -->
+  <div class="hypothesis-card" style="margin-bottom: 24px;">
+    <div class="hypothesis-title" style="color: #a3c3d9;">Step 6: Larry Runs Claims Compliance (Automatic)</div>
+    <div class="hypothesis-body">
+      Every claim in every piece of copy is checked against claims-compliance.md. Tier A claims pass automatically. Tier B/C would flag for Devon's review. In this run, all claims were Tier A — no gate required. See the Claims Compliance section above for the full check.
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="hypothesis-card">
+    <div class="hypothesis-title" style="color: #4ade80;">What You Get Back</div>
+    <div class="hypothesis-body">
+      From one prompt, Larry + Moe produced everything on this page:<br><br>
+      4 base images (1:1, 9:16, 16:9, 4:5) — all with real Kenetik product via Grok edit<br>
+      4 composites with text overlay + logo watermark via Creatomate<br>
+      1 animated video (8s, 9:16) via Grok image-to-video<br>
+      8 hooks with archetype classification and performance weighting<br>
+      Platform-specific copy for IG, TikTok, LinkedIn, X, Facebook<br>
+      Hashtag sets by platform<br>
+      Full claims compliance audit (all Tier A)<br>
+      Content hypothesis with KPIs and target segments
+    </div>
+  </div>
+</div>
+
 <div style="text-align: center; padding: 40px 0 20px; color: #444; font-size: 11px;">
   Generated by Larry 2.0 + Moe (Kenetik Content Engine) — Grok Edit Mode Only — March 24, 2026
 </div>
